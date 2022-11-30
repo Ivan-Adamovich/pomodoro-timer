@@ -1,0 +1,63 @@
+:root{
+  --red: #EA473B;
+  --green: #3BBC56;
+  --dop: rgba(255,255,255,0.2)
+}
+
+.green{
+  color: var(--green);
+}
+
+.dark{
+  background-color:hsl(276, 100%, 11%);
+  background-color:hsl(64, 100%, 77%);
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body{
+  background-color:hsl(86, 100%, 89%);
+  color: #EA473B;
+}
+
+main{
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button{
+  background-color: transparent;
+  color: #EA473B;
+  border:0;
+  display: inline-block;
+  width: 100px;
+  cursor: pointer;
+}
+
+button.with-text{
+  width: 170px;
+  background-color:rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  line-height: 45px;
+}
+
+button.with-text img{
+  width: 36px;
+  height: 36px;
+  float: left;
+  margin-right: 10px;
+}
+
+label{
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
