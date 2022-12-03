@@ -24,6 +24,10 @@ function Timer() {
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
 
+  function playSound () {
+    console.log('Play sound!!!');
+  }
+
   function tick() {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
@@ -64,6 +68,8 @@ function Timer() {
 
       setSecondsLeft(nextSeconds);
       secondsLeftRef.current = nextSeconds;
+
+      playSound();
     }
 
     if(mode === 'work'){
