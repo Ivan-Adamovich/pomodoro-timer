@@ -8,11 +8,6 @@
   color: var(--green);
 }
 
-.dark{
-  background-color:hsl(276, 100%, 11%);
-  background-color:hsl(64, 100%, 77%);
-}
-
 .flex{
   display: flex;
   align-items: center;
@@ -41,7 +36,6 @@ button{
 
 button.with-text{
   width: 170px;
-  background-color:rgba(255,255,255,0.1);
   border-radius:10px;
   padding: 10px 20px;
   font-size: 1.4rem;

@@ -1,9 +1,9 @@
-import tomatoWork from '../images/tomato-work.png';
+// import tomatoWork from '../images/tomato-work.png';
 
 function WorkButton(props) {
     return (
       <button {...props}>
-        <img src={tomatoWork} alt="tomato" width='64px'/>
+        <img src="images/tomato-work.png" alt="tomato" width='64px'/>
       </button>
     );
   }

@@ -1,12 +1,15 @@
+import { useContext, useState, useEffect, useRef } from "react";
+
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import { getPadTime } from '../helpers/getPadTime';
-import RadialSeparators from "../helpers/RadialSeparators";
 import 'react-circular-progressbar/dist/styles.css';
+import RadialSeparators from "../helpers/RadialSeparators";
+
+import { getPadTime } from '../helpers/getPadTime';
+import SettingsContext from "../settings/SettingsContext";
+
 import PlayButton from "../buttons/PlayButton";
 import PauseButton from "../buttons/PauseButton";
 import ResetButton from "../buttons/ResetButton";
-import {useContext, useState, useEffect, useRef} from "react";
-import SettingsContext from "../settings/SettingsContext";
 import WorkButton from '../buttons/WorkButton';
 import BreackButton from '../buttons/BreackButton';
 
@@ -15,18 +18,12 @@ const green = '#3BBC56';
 
 function Timer() {
   const settingsInfo = useContext(SettingsContext);
-
   const [isPaused, setIsPaused] = useState(true);
-  const [mode, setMode] = useState('work'); // work/break
+  const [mode, setMode] = useState('work');
   const [secondsLeft, setSecondsLeft] = useState(0);
-
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
-
-  function playSound () {
-    console.log('Play sound!!!');
-  }
 
   function tick() {
     secondsLeftRef.current--;
@@ -34,7 +31,7 @@ function Timer() {
   }
 
   function switchMode() {
-    if(mode === 'work'){
+    if (mode === 'work') {
       setMode('break');
       modeRef.current = 'break';
       reset();
@@ -43,12 +40,12 @@ function Timer() {
       modeRef.current = 'work';
       reset();
     }
-  } 
+  }
 
   function reset() {
-    setIsPaused(true); 
+    setIsPaused(true);
     isPausedRef.current = true;
-    if(mode === 'work'){
+    if (mode === 'work') {
       secondsLeftRef.current = settingsInfo.workMinutes * 60;
       setSecondsLeft(secondsLeftRef.current);
     } else {
@@ -58,7 +55,6 @@ function Timer() {
   }
 
   useEffect(() => {
-
     function switchMode() {
       const nextMode = modeRef.current === 'work' ? 'break' : 'work';
       const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
@@ -69,10 +65,9 @@ function Timer() {
       setSecondsLeft(nextSeconds);
       secondsLeftRef.current = nextSeconds;
 
-      playSound();
     }
 
-    if(mode === 'work'){
+    if (mode === 'work') {
       secondsLeftRef.current = settingsInfo.workMinutes * 60;
       setSecondsLeft(secondsLeftRef.current);
     } else {
@@ -89,7 +84,7 @@ function Timer() {
       }
 
       tick();
-    },1000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [settingsInfo, mode]);
@@ -101,39 +96,39 @@ function Timer() {
 
   const minutes = getPadTime(Math.floor(secondsLeft / 60));
   let seconds = secondsLeft % 60;
-  if(seconds < 10) seconds = '0'+seconds;
+  if (seconds < 10) seconds = '0' + seconds;
 
   return (
     <div>
       <div className='flex'>
         {mode === 'work' ? <h3>Work Session</h3> : <h3 className='green'>Break Session</h3>}
-        {mode === 'work' ? <WorkButton onClick={switchMode}/> : <BreackButton onClick={switchMode}/>}
+        {mode === 'work' ? <WorkButton onClick={switchMode} /> : <BreackButton onClick={switchMode} />}
       </div>
       <CircularProgressbarWithChildren
         value={percentage}
         text={minutes + ':' + seconds}
         strokeWidth={10}
         styles={buildStyles({
-          pathColor:mode === 'work' ? red : green,
-          trailColor:'rgba(255,255,255,0.0)',
-          textColor:mode === 'work' ? red : green,
+          pathColor: mode === 'work' ? red : green,
+          trailColor: 'rgba(255,255,255,0.0)',
+          textColor: mode === 'work' ? red : green,
           strokeLinecap: "butt"
         })}
       >
         <RadialSeparators
           count={12}
           style={{
-            background:mode === 'work' ? green : red,
+            background: mode === 'work' ? green : red,
             width: "2px",
             height: `${10}%`
           }}
         />
       </CircularProgressbarWithChildren>
-      <div style={{marginTop:'20px'}}>
+      <div style={{ marginTop: '20px' }}>
         {isPaused
           ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
           : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
-          <ResetButton onClick={reset}/>
+        <ResetButton onClick={reset} />
       </div>
     </div>
   );

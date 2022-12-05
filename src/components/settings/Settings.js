@@ -1,14 +1,14 @@
+import { useContext } from 'react';
+
 import PlusButton from "../buttons/PlusButton";
 import MinusButton from "../buttons/MinusButton";
 import SettingsContext from './SettingsContext';
-import { useContext } from 'react';
 
 function Settings() {
-
     const settingsInfo = useContext(SettingsContext);
 
     return(
-        <div className='flex'>
+        <div>
             <div>
                 <label>Work minutes: </label>
                 <div className='flex'>
