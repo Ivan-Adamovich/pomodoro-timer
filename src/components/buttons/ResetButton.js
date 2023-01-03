@@ -1,5 +1,3 @@
-// import tomatoReset from '../images/tomato-reset.png';
-
 function ResetButton(props) {
     return (
       <button {...props}>
