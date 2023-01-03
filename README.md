@@ -1,5 +1,5 @@
 ## Pomodoro-Timer App
-I created this application for educational purposes to develop my skills and practice. When creating, I used the React library. The main functionality is written using React hooks such as useState, useEffect, useContext and useRef. From ready-made solutions, I imported react-circular-progressbar. I also manually drew all the icons for ui so that they correspond to the pomodoro style.
+When creating, I used the React library. The main functionality is written using React hooks (useState, useEffect, useContext, useRef). From ready-made solutions, I imported react-circular-progressbar. I also manually drew all the icons for ui so that they correspond to the pomodoro style.
 
 ## Available Scripts
 
