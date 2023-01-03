@@ -1,5 +1,3 @@
-// import tomatoPlus from '../images/tomato-plus.png';
-
 function PlusButton(props) {
     return (
       <button {...props}>
