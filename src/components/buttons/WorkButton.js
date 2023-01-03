@@ -1,5 +1,3 @@
-// import tomatoWork from '../images/tomato-work.png';
-
 function WorkButton(props) {
     return (
       <button {...props}>
