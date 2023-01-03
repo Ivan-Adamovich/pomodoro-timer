@@ -6,7 +6,6 @@ import SettingsContext from './SettingsContext';
 
 function Settings() {
     const settingsInfo = useContext(SettingsContext);
-
     return(
         <div>
             <div>
