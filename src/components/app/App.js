@@ -1,10 +1,10 @@
+import './App.css';
+
 import { useState } from 'react';
 
 import Timer from '../timer/Timer';
 import Settings from '../settings/Settings';
 import SettingsContext from '../settings/SettingsContext';
-
-import './App.css';
 
 function App() {
   const [workMinutes, setWorkMinutes] = useState(25); 
