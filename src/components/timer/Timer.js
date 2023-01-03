@@ -3,7 +3,6 @@ import { useContext, useState, useEffect, useRef } from "react";
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import RadialSeparators from "../helpers/RadialSeparators";
-
 import { getPadTime } from '../helpers/getPadTime';
 import SettingsContext from "../settings/SettingsContext";
 
