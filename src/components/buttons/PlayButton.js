@@ -1,5 +1,3 @@
-// import tomatoPlay from '../images/tomato-play.png';
-
 function PlayButton(props){
     return(
       <button {...props}>
