@@ -1,5 +1,3 @@
-// import tomatoBreack from '../images/tomato-breack.png';
-
 function BreackButton(props) {
     return (
       <button {...props}>
