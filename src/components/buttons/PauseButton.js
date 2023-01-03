@@ -1,5 +1,3 @@
-// import tomatoPause from '../images/tomato-pause.png';
-
 function PauseButton(props) {
     return (
       <button {...props}>
